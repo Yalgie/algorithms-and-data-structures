@@ -63,3 +63,19 @@ log<sub>2</sub>(value) = exponent ----> 2<sup>exponent</sup> = value
 (base = 3)
 
 log(8) = 3
+
+## Problem Solving Patterns
+
+### Frequency Counter
+
+#### Example 1
+Write a function called *same*, which accepts two arrays. The function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same.
+
+```
+sameNaive.js
+sameRefactor.js
+```
+
+The naive version of this function seems shorter but it uses nested loops with the indexOf method making it an O(n<sup>2</sup>) operation.
+
+The refactored version counts the frequency of each integer in both arrays and stores the frequency in an object. It uses more loops but they are not nested which makes this function an O(n) operation which makes it a lot faster then the naive version. For example, if _n_ was 1000, the refactored version would be 3n (3x1000 = 3000) but the naive version would be 2n<sup>2</sup> (1000x1000 = 1,000,000).
