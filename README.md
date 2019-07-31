@@ -56,8 +56,11 @@ log<sub>2</sub>(8) = 3 ----> 2<sup>3</sup> = 8
 log<sub>2</sub>(value) = exponent ----> 2<sup>exponent</sup> = value
 
 8 / 2 = 4
+
 4 / 2 = 2
+
 2 / 2 = 1
+
 (base = 3)
 
 log(8) = 3
