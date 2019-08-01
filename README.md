@@ -67,14 +67,19 @@ log(8) = 3
 
 ## Problem Solving Patterns
 
-### Frequency Counter
+### Frequency Counters
 
 #### Example 1 (Array)
 Write a function called *same*, which accepts two arrays. The function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same.
 
 ```
 sameNaive.js
+// Time Complexity O(n<sup>2</sup>)
+// Space Complexity O(n)
+
 sameRefactor.js
+// Time Complexity O(n)
+// Space Complexity O(n)
 ```
 
 The naive version of this function seems shorter but it uses nested loops with the indexOf method making it an O(n<sup>2</sup>) operation.
@@ -86,6 +91,8 @@ Write a function called *validAnagram*, which accepts two strings. The function 
 
 ```
 anagram.js
+// Time Complexity O(n<sup>2</sup>)
+// Space Complexity O(n)
 
 validAnagram("anagram", "nagaram"); // true
 validAnagram("aaz", "zza"); // false
@@ -105,3 +112,33 @@ The first loop stores the frequency of each letter in the ```lookup``` object, w
 // Second Loop:
 { a: 0, n: 0, g: 0, r: 0, m: 0 }
 ```
+
+### Multiple Pointers
+
+#### Example 1
+Write a function called _sumZero_ which accepts a sorted array of integers. The function should find the first pair where the sum is 0. Return an array that includes both values that sum to zero or undefined if a pair does not exist.
+
+```
+sumZeroNaive.js
+// Time Complexity O(n<sup>2</sup>)
+// Space Complexity O(1)
+
+sumZeroRefactor.js
+// Time Complexity O(n)
+// Space Complexity O(1)
+```
+
+The naive version uses one loop to start at 0 (i) and another nested loop to search 1 ahead (j).
+
+The refactored version starts with a pointer at 0 (leftI) and another pointer which stars at the end of the array (rightI), it then moved the left or right index inwards depending on if the sum is greater or less then 0 until it finds a match.
+
+#### Example 2
+Implement a function called _countUniqueValues_ which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted.
+
+```
+countUniqueValues.js
+// Time Complexity O(n)
+// Space Complexity O(1)
+```
+
+This example again uses 2 pointers, but instead of working from either end into the middle, they start at 0 and 1. If the number at i is different to j it will increment i by 1 and replace the current value in the array to the new number. This means we don't need to create an additonal variable, as we can just replace the values in the current array. We then return the value of i once the loop has ended. Because we're using the same array and not adding any additonal space complexity it stays at O(1).
